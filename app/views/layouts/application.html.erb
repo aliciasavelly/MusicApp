@@ -11,8 +11,12 @@
   <body>
     <header>
       <h1>Music App</h1>
+
     </header>
-    
+
+    <p> <%= "Logged in as: #{@user.email}" if  %> </p>
+
     <%= yield %>
+
   </body>
 </html>
