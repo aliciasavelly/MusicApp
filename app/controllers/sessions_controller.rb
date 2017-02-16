@@ -1,4 +1,8 @@
 class SessionsController < ApplicationController
+  # before_action(on: :create) do
+  #   redirect_to user_url(current_user) unless current_user.nil?
+  # end
+
   def new
     @user = User.new
     render :new
@@ -10,15 +14,17 @@ class SessionsController < ApplicationController
     if user.nil?
       flash.now[:errors] = user.errors.full_messages
       render :new
-    elsif logged_in?(user)
-      redirect_to user_url(user)
     else
       log_in_user!(user)
+      @current_user = user
     end
   end
 
   def destroy
+    @current_user.reset_session_token! if @current_user
     session[:session_token] = nil
     @current_user = nil
+    redirect_to new_session_url
   end
+
 end

@@ -9,10 +9,13 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in?(user)
+    return false if user.nil?
+    user.reset_session_token!
     user.session_token == session[:session_token]
   end
 
   def log_in_user!(user)
+    @current_user = user
     user.reset_session_token!
     session[:session_token] = user.session_token
     redirect_to user_url(user)
