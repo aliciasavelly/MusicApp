@@ -18,5 +18,8 @@ class SessionsController < ApplicationController
     end
   end
 
-
+  def destroy
+    session[:session_token] = nil
+    @current_user = nil
+  end
 end
