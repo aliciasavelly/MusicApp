@@ -1,10 +1,10 @@
 class BandsController < ApplicationController
   def index
-    Bands.all
+    Band.all
   end
 
   def new
-    band = Band.new()
+    band = Band.new(band_params)
   end
 
   def create
@@ -13,18 +13,22 @@ class BandsController < ApplicationController
 
 
   def edit
+
   end
 
   def show
+
   end
 
   def update
+
   end
 
   def destroy
+
   end
 
   def band_params
-    params.require(:band).
+    params.require(:band)
   end
 end

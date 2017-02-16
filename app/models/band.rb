@@ -3,6 +3,6 @@ class Band < ApplicationRecord
 
   has_many :albums
   has_many :tracks,
-    through: :albums
+    through: :albums,
     source: :tracks
 end
