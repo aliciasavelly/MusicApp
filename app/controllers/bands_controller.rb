@@ -4,8 +4,9 @@ class BandsController < ApplicationController
   end
 
   def new
+    band = Band.new()
   end
-  
+
   def create
 
   end
@@ -21,5 +22,9 @@ class BandsController < ApplicationController
   end
 
   def destroy
+  end
+
+  def band_params
+    params.require(:band).
   end
 end

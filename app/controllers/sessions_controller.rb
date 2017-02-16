@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
-  # before_action(on: :create) do
-  #   redirect_to user_url(current_user) unless current_user.nil?
-  # end
+  before_action(on: :create) do
+    redirect_to user_url(current_user) unless current_user.nil?
+  end
 
   def new
     @user = User.new
@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
     user = User.find_by_credentials(params[:user][:email], params[:user][:password])
 
     if user.nil?
-      flash.now[:errors] = user.errors.full_messages
+      flash.now[:errors] = ["Incorrect username and/or password."]
       render :new
     else
       log_in_user!(user)

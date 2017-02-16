@@ -10,12 +10,13 @@
 
   <body>
     <header>
+      <%= render "layouts/errors" %>
       <h1>Music App</h1>
 
       <% unless current_user.nil? %>
         <%= button_to "Log Out", session_url, method: :delete %>
       <% end %>
-      
+
     </header>
 
     <p> <%= "Logged in as: #{current_user.email}" if current_user %> </p>
