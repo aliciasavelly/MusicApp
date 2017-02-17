@@ -8,10 +8,9 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by_session_token(session[:session_token])
   end
 
-  def logged_in?(user)
-    return false if user.nil?
-    user.reset_session_token!
-    user.session_token == session[:session_token]
+  def logged_in?
+    return false if current_user.nil?
+    current_user.session_token == session[:session_token]
   end
 
   def log_in_user!(user)

@@ -7,6 +7,12 @@
   <br>
   <label for="password">Password: </label>
   <input type="password" name="user[password]">
-
+  <br>
   <input type="submit" value="sign up">
+</form>
+
+<form action="<%= new_session_url %>" method="get">
+  <%= auth_token %>
+  <br>
+  <input type="submit" value="Already have an account?">
 </form>
