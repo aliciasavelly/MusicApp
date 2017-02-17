@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
-  # before_action(on: :new) do
-  #   redirect_to bands_url unless current_user.nil?
-  # end
+  before_action(only: :new) do
+    redirect_to bands_url unless current_user.nil?
+  end
 
   def new
     @user = User.new
