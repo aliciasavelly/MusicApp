@@ -1,2 +1,10 @@
-<h1>Albums#show</h1>
-<p>Find me in app/views/albums/show.html.erb</p>
+<h2><%=@album.name%></h2>
+
+<p><strong>Links</strong></p>
+
+<ul>
+  <li><%= link_to("New Track", new_track_url ) %></li>
+  <li><%= link_to("Edit Album", edit_album_url ) %></li>
+  <li><%= link_to("Destroy Album", band_url(Band.find(@album.band_id)) ) %></li>
+  <li><%=  %></li>
+</ul>
