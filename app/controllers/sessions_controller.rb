@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
-  before_action(on: :create) do
-    redirect_to user_url(current_user) unless current_user.nil?
-  end
+  # before_action(on: :create) do
+  #   redirect_to user_url(current_user) unless current_user.nil?
+  # end
 
   def new
     @user = User.new
