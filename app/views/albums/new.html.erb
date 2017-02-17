@@ -1,2 +1,21 @@
 <h2>Create a new album for <%= Band.find(2).name %>!</h2>
 <!-- fill this in for specific band -->
+
+<form action="<%= albums_url %>" method="post">
+  <%= auth_token %>
+  <label for="Name">Name: </label>
+  <input type="text" name="album[name]"><br><br>
+  <label for="Band">Band: </label>
+  <select name="album[band_id]">
+    <% Band.all.each do |band| %>
+      <option value=" <%=band.id %>"><%= band.name %></option>
+    <% end %>
+  </select><br><br>
+  <input type="radio" name="album[album_type]">
+  <label for="live">Live</label>
+  <input type="radio" name="album[album_type]" checked>
+  <label for="studio">Studio</label><br><br>
+  <label for="year">Year: </label>
+  <input type="text" name="album[year]"><br><br>
+  <input type="submit" value="Create Album!">
+</form>

@@ -5,7 +5,9 @@
 <h4>Albums</h4>
 
 <ul>
-  <li></li>
+  <% Album.all.each do |album| %>
+    <li> <%= link_to(album.name, album_url(album)) if album.band_id == @band.id %> </li>
+  <% end %>
 </ul>
 
 <h4>Links</h4>
