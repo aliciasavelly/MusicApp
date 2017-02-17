@@ -18,6 +18,6 @@ class ApplicationController < ActionController::Base
     @current_user = user
     user.reset_session_token!
     session[:session_token] = user.session_token
-    redirect_to user_url(user)
+    redirect_to bands_url
   end
 end

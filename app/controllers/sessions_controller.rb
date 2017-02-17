@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  # before_action(on: :create) do
+  # before_action(on: :new) do
   #   redirect_to user_url(current_user) unless current_user.nil?
   # end
 
