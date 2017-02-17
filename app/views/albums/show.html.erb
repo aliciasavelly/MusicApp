@@ -6,5 +6,5 @@
   <li><%= link_to("New Track", new_track_url ) %></li>
   <li><%= link_to("Edit Album", edit_album_url ) %></li>
   <li><%= link_to("Destroy Album", band_url(Band.find(@album.band_id)) ) %></li>
-  <li><%=  %></li>
+  <li><%= link_to("Return to #{@album.name}'s band, #{Band.find(@album.band_id).name}", band_url(Band.find(@album.band_id))) %></li>
 </ul>
