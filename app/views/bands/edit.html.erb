@@ -1,2 +1,9 @@
-<h1>Bands#edit</h1>
-<p>Find me in app/views/bands/edit.html.erb</p>
+<h2>Edit <%= @band.name %></h2>
+
+<form action="<%= band_url(@band) %>" method="post">
+  <%= auth_token %>
+  <input type="hidden" name="_method" value="patch">
+  <label for="Name">Name: </label>
+  <input type="text" name="band[name]" value=" <%=@band.name%> ">
+  <input type="submit" value="Edit band">
+</form>
